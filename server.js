@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors");
+// const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const contactRouter = require("./router/contact"); // Assuming this is your routes file
@@ -14,11 +14,11 @@ const app = express();
 const PORT = process.env.PORT || 6001;
 
 // Middleware setup
-app.use(cors({
-    origin: 'http://localhost:5173',  // Adjust this to your frontend URL
-    methods: ['GET', 'POST'], // Adjust if you have other methods
-    allowedHeaders: ['Content-Type'], // Add any headers you need
-}));
+// app.use(cors({
+//     origin: 'http://localhost:5173',  // Adjust this to your frontend URL
+//     methods: ['GET', 'POST'], // Adjust if you have other methods
+//     allowedHeaders: ['Content-Type'], // Add any headers you need
+// }));
 
 // Allow only the frontend origin to access the API
 app.use(bodyParser.json({ limit: "30mb", extended: true })); // Parse JSON data with a size limit
