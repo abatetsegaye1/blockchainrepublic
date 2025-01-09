@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-// const cors = require("cors");
+const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const contactRouter = require("./router/contact"); // Assuming this is your routes file
@@ -12,7 +12,7 @@ const app = express();
 
 // Port number for your server
 const PORT = process.env.PORT || 6001;
-
+app.use(cors());
 // Middleware setup
 // app.use(cors({
 //     origin: 'http://localhost:5173',  // Adjust this to your frontend URL
