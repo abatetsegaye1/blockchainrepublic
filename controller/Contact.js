@@ -37,7 +37,9 @@ const sendEmails = async (customeremail,email, name,message) => {
          email = 'itexpertstoday@gmail.com';
      } else if (customerType === "itcandidategroup") {
          email = 'itexpertsacademy24@gmail.com';
-     } else if (customerType === "republicgroup") {
+     }else if (customerType === "blockchainhiv") {
+         email = 'uemglobal.admin@gmail.com';
+     }  else if (customerType === "republicgroup") {
          email = 'uemglobal.admin@gmail.com'; 
      } else {
          email = 'academyforcybersec24@gmail.com';
