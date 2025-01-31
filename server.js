@@ -4,7 +4,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const contactRouter = require("./router/contact"); // Assuming this is your routes file
-const  mongoose  = require("mongoose");
+const mongoose = require("mongoose");
 const registerDataRouter = require("./router/registerData");
 require("dotenv").config(); // Make sure to load environment variables
 
@@ -27,14 +27,14 @@ app.use(morgan("common")); // Log HTTP requests
 
 // Register the contact routes
 app.use("/contact", contactRouter);
-app.use("/questionarieData", registerDataRouter);
-
+// app.use("/que", registerDataRouter);
+app.use("/userdata", registerDataRouter);
 // MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI, {
     // useNewUrlParser: true,
     // useUnifiedTopology: true,
- 
+
   })
   .then(() => {
     console.log("Connected to MongoDB");
