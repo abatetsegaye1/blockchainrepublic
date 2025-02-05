@@ -8,6 +8,7 @@ const sendEmails = async (customeremail,email, name,message) => {
         const mailOptions = {
             from: customeremail, // Sender email
             to: email, // Recipient email
+            replyTo: customeremail, //
             subject: 'Contact Message',
             html: `
                 <html>
@@ -31,23 +32,25 @@ const sendEmails = async (customeremail,email, name,message) => {
   const handleContact =async (req,res)=>{
     const {name, email:customeremail, customerType,message } = req.body;
      //republicgroup
-     let email;
+     console.log("===== email sent from =====: ", customeremail);
+     let emailto;
 
      if (customerType === "companygroup") {
-         email = 'itexpertstoday@gmail.com';
+         emailto = 'itexpertstoday@gmail.com';
      } else if (customerType === "itcandidategroup") {
-         email = 'itexpertsacademy24@gmail.com';
+         emailto = 'gibetsegaye123@gmail.com';
      }else if (customerType === "blockchainhiv") {
-         email = 'uemglobal.admin@gmail.com';
+         emailto = 'didier@excellencemanagement.net';
      }  else if (customerType === "republicgroup") {
-         email = 'uemglobal.admin@gmail.com'; 
+         emailto = 'didier@excellencemanagement.net'; 
      } else {
-         email = 'academyforcybersec24@gmail.com';
+         emailto = 'academyforcybersec24@gmail.com';
      }
      
-
+//
+//didier@excellencemanagement.net
     try{
-      await sendEmails(customeremail,email, name,message);
+      await sendEmails(customeremail,emailto, name,message);
       res.status(200).json({message: 'email sent successfully'});
     }catch(error){
       console.error('Error sending  email:', error);
