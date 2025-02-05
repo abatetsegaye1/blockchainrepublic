@@ -1,6 +1,6 @@
 const transporter  = require("../utils/Transporter");
 
-const sendEmails = async (customeremail,email, name,message) => {
+const sendEmails = async (customeremail,email, name,message,type) => {
 
     console.log(customeremail, email,   name, message);
     
@@ -9,7 +9,7 @@ const sendEmails = async (customeremail,email, name,message) => {
             from: customeremail, // Sender email
             to: email, // Recipient email
             replyTo: customeremail, //
-            subject: 'Contact Message',
+            subject: `Contact Message from ${type}`,
             html: `
                 <html>
                     <body>
@@ -34,14 +34,16 @@ const sendEmails = async (customeremail,email, name,message) => {
      //republicgroup
      console.log("===== email sent from =====: ", customeremail);
      let emailto;
-
+     let type="";
      if (customerType === "companygroup") {
          emailto = 'itexpertstoday@gmail.com';
      } else if (customerType === "itcandidategroup") {
          emailto = 'gibetsegaye123@gmail.com';
      }else if (customerType === "blockchainhiv") {
          emailto = 'didier@excellencemanagement.net';
+         type="blockchain.hiv";
      }  else if (customerType === "republicgroup") {
+         type="blockchain.republic"
          emailto = 'didier@excellencemanagement.net'; 
      } else {
          emailto = 'academyforcybersec24@gmail.com';
@@ -50,7 +52,7 @@ const sendEmails = async (customeremail,email, name,message) => {
 //
 //didier@excellencemanagement.net
     try{
-      await sendEmails(customeremail,emailto, name,message);
+      await sendEmails(customeremail,emailto, name,message,type);
       res.status(200).json({message: 'email sent successfully',status: 'success'});
     }catch(error){
       console.error('Error sending  email:', error);

@@ -10,15 +10,15 @@ const handleData = async (req, res) => {
             return res.status(400).json({ message: "All fields are required." });
         }
 
-        const trimmedName = fullName.trim();
-        if (trimmedName.length < 3 || trimmedName.length > 70) {
-            return res
-                .status(400)
-                .json({ message: "Name must be between 3 and 70 characters long." });
-        }
+        // const trimmedName = fullName.trim();
+        // if (trimmedName.length < 3 || trimmedName.length > 70) {
+        //     return res
+        //         .status(400)
+        //         .json({ message: "Name must be between 3 and 70 characters long." });
+        // }
 
         const newQuestionarie = new Questionarie({
-            name: trimmedName,
+            name: fullName,
             cityName: cityName.trim(),
             zipCode: zipCode.trim(),
             answer: opinion.trim(),
