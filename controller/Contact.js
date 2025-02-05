@@ -51,10 +51,10 @@ const sendEmails = async (customeremail,email, name,message) => {
 //didier@excellencemanagement.net
     try{
       await sendEmails(customeremail,emailto, name,message);
-      res.status(200).json({message: 'email sent successfully'});
+      res.status(200).json({message: 'email sent successfully',status: 'success'});
     }catch(error){
       console.error('Error sending  email:', error);
-      res.status(500).json({error: 'Error sending  email'});
+      res.status(500).json({message: error.message,status: error.status});
     } 
 
   }
