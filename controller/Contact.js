@@ -43,7 +43,7 @@ const sendEmails = async (customeremail,email, name,message,type) => {
          emailto = 'didier@excellencemanagement.net';
          type="blockchain.hiv";
      }  else if (customerType === "republicgroup") {
-         type="blockchain.republic"
+         type="blockchain.republican"
          emailto = 'didier@excellencemanagement.net'; 
      } else {
          emailto = 'academyforcybersec24@gmail.com';

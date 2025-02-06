@@ -1,6 +1,7 @@
 const express =require ("express");
 // const multer = require("multer");
-const { checkEmail} = require( "../controllers/auth.js");
+// const { checkEmail} = require( "../controllers/auth.js");
+const login = require("../controller/login.js");
 //const verifyToken = require("../middlewares/auth.js");
 
 
@@ -16,7 +17,8 @@ const router = express.Router();
 //   });
 //  const upload = multer({ storage });
 //router.post("/login", login);
-router.post("/checkEmail", checkEmail);
+// router.post("/checkEmail", checkEmail);
+router.post("/login", login);
 // router.post("/verifyCode", verifyEmailCode);
 // router.post("/resetPassword", resetPassword);
 //router.post("/register", register);
