@@ -13,13 +13,13 @@ const app = express();
 
 // Port number for your server
 const PORT = process.env.PORT || 6001;
-// app.use(cors());
+ app.use(cors());
 // Middleware setup
-app.use(cors({
-    origin: 'http://localhost:5173',  // Adjust this to your frontend URL
-    methods: ['GET', 'POST'], // Adjust if you have other methods
-    allowedHeaders: ['Content-Type'], // Add any headers you need
-}));
+// app.use(cors({
+//     origin: 'http://localhost:5173',  // Adjust this to your frontend URL
+//     methods: ['GET', 'POST'], // Adjust if you have other methods
+//     allowedHeaders: ['Content-Type'], // Add any headers you need
+// }));
 
 // Allow only the frontend origin to access the API
 app.use(bodyParser.json({ limit: "30mb", extended: true })); // Parse JSON data with a size limit
