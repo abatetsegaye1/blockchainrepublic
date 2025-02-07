@@ -46,14 +46,14 @@ app.post("createUser",  async (req, res) => {
     )
 // MongoDB connection
 mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect("mongodb+srv://uemglobaladmin:uemglobaladmin@cluster0.g6pup.mongodb.net/blockrep?retryWrites=true&w=majority&appName=Cluster0", {
     // useNewUrlParser: true,
     // useUnifiedTopology: true,
 
   })
   .then(() => {
     console.log("Connected to MongoDB");
-    app.listen(4000, () => {
+    app.listen(3000, () => {
       console.log(`Server running on port ${PORT}`);
     });
   })
