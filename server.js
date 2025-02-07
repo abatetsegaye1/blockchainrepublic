@@ -6,7 +6,8 @@ const morgan = require("morgan");
 const contactRouter = require("./router/contact"); // Assuming this is your routes file
 const mongoose = require("mongoose");
 const registerDataRouter = require("./router/registerData");
-const userLoginRouter=require("./router/auth")
+const userLoginRouter=require("./router/auth");
+const User = require("./model/user");
 require("dotenv").config(); // Make sure to load environment variables
 
 const app = express();
@@ -31,6 +32,20 @@ app.use("/contact", contactRouter);
 // app.use("/que", registerDataRouter);
 app.use("/userdata", registerDataRouter);
 app.use("/user", userLoginRouter);
+app.post("createUser",  async (req, res) => {
+      try {
+        const {username, password} = req.body;
+        const newUser = new User({username,password}); // Create a new User document
+        const savedUser = await newUser.save(); // Save the user to the database (this is where the pre('save') middleware runs)
+        return savedUser; // Return the saved user object
+      } catch (error) {
+        console.error("Error creating user:", error);
+        // throw error; // Re-throw the error so the calling function can handle it
+     return res.status(404).send({message: "database error"});
+      }
+    }
+  
+    )
 // MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI, {

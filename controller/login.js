@@ -19,30 +19,30 @@ const login =async (req, res) => {
 
 
 
-//   async function createUser(userData) {
-//     try {
-//       const newUser = new User(userData); // Create a new User document
-//       const savedUser = await newUser.save(); // Save the user to the database (this is where the pre('save') middleware runs)
-//       return savedUser; // Return the saved user object
-//     } catch (error) {
-//       console.error("Error creating user:", error);
-//       throw error; // Re-throw the error so the calling function can handle it
-//     }
-//   }
+  // async function createUser(userData) {
+  //   try {
+  //     const newUser = new User(userData); // Create a new User document
+  //     const savedUser = await newUser.save(); // Save the user to the database (this is where the pre('save') middleware runs)
+  //     return savedUser; // Return the saved user object
+  //   } catch (error) {
+  //     console.error("Error creating user:", error);
+  //     throw error; // Re-throw the error so the calling function can handle it
+  //   }
+  // }
   
-  // Example usage:
-//   async function test() {
-//       try {
-//           const newUser = await createUser({
-//               username: "republican@admin",
-//               password: "123456" // This will be hashed!
-//           });
-//           console.log("User created:", newUser);
-//       } catch (error) {
-//           console.error("Error in test function:", error);
-//       }
-//   }
+  // // Example usage:
+  // async function test() {
+  //     try {
+  //         const newUser = await createUser({
+  //             username: "republican@admin",
+  //             password: "123456" // This will be hashed!
+  //         });
+  //         console.log("User created:", newUser);
+  //     } catch (error) {
+  //         console.error("Error in test function:", error);
+  //     }
+  // }
   
-//   test();
+  // test();
   
   module.exports = login;
