@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config(); // Make sure to load environment variables
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
@@ -8,7 +9,6 @@ const mongoose = require("mongoose");
 const registerDataRouter = require("./router/registerData");
 const userLoginRouter=require("./router/auth");
 const User = require("./model/user");
-require("dotenv").config(); // Make sure to load environment variables
 
 const app = express();
 
