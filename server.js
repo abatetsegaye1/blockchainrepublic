@@ -1,5 +1,5 @@
-const express = require("express");
 require("dotenv").config(); // Make sure to load environment variables
+const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
